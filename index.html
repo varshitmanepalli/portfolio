@@ -299,6 +299,79 @@
             onerror: "this.onerror=null;this.src='https://placehold.co/600x400/374151/f9fafb?text=Project+Image'";
         }
 
+
+        /* Certifications section grid layout */
+        #certifications .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media (min-width: 768px) {
+             #certifications .grid {
+                 grid-template-columns: repeat(1, 1fr);
+             }
+        }
+        /* Project card styling */
+        #certifications .project-card {
+            background-color: #374151;
+            border-radius: 0.75rem;
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.15), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #certifications .project-card:hover {
+            transform: translateY(-0.5rem) scale(1.02);
+            box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.2), 0 6px 8px -2px rgba(0, 0, 0, 0.08);
+        }
+
+        #certifications .project-card h3 {
+            font-size: 1.5rem;
+             @media (min-width: 768px) {
+                 font-size: 1.875rem;
+             }
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        #certifications .project-card p {
+            color: #d1d5db;
+            font-size: 1rem;
+             @media (min-width: 768px) {
+                 font-size: 1.125rem;
+             }
+            line-height: 1.5rem;
+             @media (min-width: 768px) {
+                 line-height: 1.75rem;
+             }
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+         #certifications .project-card .tools {
+            color: #9ca3af;
+            font-size: 0.875rem;
+             @media (min-width: 768px) {
+                 font-size: 1rem;
+             }
+            font-weight: 500;
+            margin-top: auto;
+        }
+
+        #certifications img {
+            border-radius: 0.75rem;
+            align-self: center;
+            width: 100%;
+            height: 200px;
+             @media (min-width: 768px) {
+                 height: 250px;
+             }
+            object-fit:contain;
+            margin-bottom: 1.5rem;
+            onerror: "this.onerror=null;this.src='https://placehold.co/600x400/374151/f9fafb?text=Project+Image'";
+        }
+
         /* --- Skills Section Grid Styling --- */
         #skills {
             text-align: center;
@@ -503,7 +576,7 @@
             fill: currentColor;
         }
         /* --- End Hero Social Icons --- */
-        .cover-image h2, h3 {
+        .cover-image h2 {
              font-size: 2.5rem;
              @media (min-width: 768px) {
                  font-size: 3.5rem;
@@ -718,9 +791,10 @@
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -747,7 +821,7 @@
             </a>
         </div>
         <h2>Varshit Manepalli</h2>
-        <h3>ML Intern at EscapeAPP AI - CS Grad - AI/ML Engineer</h4>
+        <h4>ML Intern at EscapeAPP AI - CS Grad - AI/ML Engineer</h4>
     </div>
 
     <main class="container">
@@ -776,6 +850,54 @@
                 </div>
                  </div>
         </section>
+
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="timeline-container">
+                <div class="timeline-item timeline-item-right">
+                    <div class="timeline-content">
+                        <a href="https://www.escapeapp.ai/"><img src="images/escapeenterprises_logo.jpeg" alt="Escape Enterprises Logo" class="timeline-logo" ></a>
+                        <h3>Machine Learning Engineer Intern</h3>
+                        <p class="company-name">Escape Enterprises</p>
+                        <p class="company-date">Dec 2024 - Present</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-item-left">
+                    <div class="timeline-content">
+                        <a href="https://www.psitcorp.com/"><img src="images/progress_solutions_inc_logo.jpeg" alt="Progress Solutions Logo" class="timeline-logo"></a>
+                         <h3>Machine Learning Engineer</h3>
+                         <p class="company-name">Progress Solutions</p>
+                         <p class="company-date">Apr 2024 - Nov 2024</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-item-right">
+                    <div class="timeline-content">
+                        <a href="https://air.vitap.ac.in/"><img src="images/divami_design_labs_ux_ui_design_development_agency_logo.jpeg" alt="Divami Logo" class="timeline-logo"></a>
+                        <h3>Software Developer Intern</h3>
+                        <p class="company-name">Divami Design Labs</p>
+                        <p class="company-date">Jan 2022 - Jul 2022</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-item-left">
+                    <div class="timeline-content">
+                        <a href="https://divami.com/"><img src="images/air_center_logo.jpeg" alt="Divami Logo" class="timeline-logo"></a>
+                        <h3>Machine Learning Engineer Intern</h3>
+                        <p class="company-name">AI & Robotics Center of VIT-AP University</p>
+                        <p class="company-date">Jan 2022 - Jul 2022</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-item-right">
+                    <div class="timeline-content">
+                        <a href="http://www.suprajatechnologies.com/"><img src="images/suprajatech_logo.jpeg" alt="Divami Logo" class="timeline-logo"></a>
+                        <h3>Software Engineer Intern</h3>
+                        <p class="company-name">Supraja Technologies</p>
+                        <p class="company-date">Jan 2022 - Jul 2022</p>
+                    </div>
+                </div>
+                 </div> 
+        </section>
+
 
         <section id="projects">
             <h2>Projects</h2>
@@ -850,6 +972,37 @@
             </div>
         </section>
 
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="grid">
+                <div class="project-card">
+                    <img src="https://www.gstatic.com/cgc/google-cloud-logo.svg" alt="">
+                    <h3>Google Cloud Certified Machine Learning Engineer</h3>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHHAifDfbJeIIQH7FeNJV179vGws6ECprESw&s" alt="">
+                    <h3>Oracle cloud infrastructure 2024 Generative AI Certified Professional</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHHAifDfbJeIIQH7FeNJV179vGws6ECprESw&s" alt="">
+                    <h3>Oracle Cloud Infrastructure 2023 AI Certified Foundations Associate</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/google_cloud.jpeg" alt="">
+                    <h3>Architecting with Google Compute Engine</h3>
+                </div>
+
+                <div class="project-card">
+                    <img src="images/qwiklabs.jpeg" alt="">
+                    <h3>Machine Learning with GCP - Labs</h3>
+                </div>
+            </div>
+        </section>
+
         <section id="skills">
             <h2>Skills</h2>
             <div class="skills-grid">
@@ -857,8 +1010,8 @@
                     <h4>Programming Languages</h4>
                     <ul>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo"> Python</li>
-                        <li><img src="https://www.svgrepo.com/show/303229/sql-database-generic-logo.svg" alt="SQL Logo"> SQL</li>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/R_logo.svg" alt="R Logo"> R</li>
+                        <li><img src="data:image/png;base64,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" alt="SQL Logo"> SQL</li>
+                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/R_logo.svg" > R</li>
                         <li><img src="https://www.svgrepo.com/show/452234/java.svg" alt="Java Logo"> Java</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MATLAB Logo"> MATLAB</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo"> JavaScript</li>
@@ -871,13 +1024,13 @@
                 <div>
                     <h4>Frameworks & Libraries</h4>
                     <ul>
-                        <li><img src="https://www.svgrepo.com/show/349375/flask.svg" alt="Flask Logo"> Flask</li>
-                        <li><img src="https://www.svgrepo.com/show/353655/django-icon.svg" alt="Django Logo"> Django</li>
+                        <li><img src="https://flask.palletsprojects.com/en/stable/_images/flask-horizontal.png" alt="Flask Logo"> Flask</li>
+                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAaVBMVEURMigAKx8AKBsKLyRmc256hYFAU0wAJhp0f3s6T0gAGADf4uH///+FkIwAAADm6OeBjIja3NsACwDFysjq7OsAEwAAIhSUnZrv8fD29/cAEACwtrTP0tEhPTTAxsRSY12co6AAHQxbamUrGWKdAAAAv0lEQVR4AWIYaACojS4SEIahIIDGE9Kpu8v974g7H3ZMvS8eLoQ83yhTWhurnN4R6gMgjGIgsQSmJwx+YJbHheNvYn0ZndBGUVS9kqzqtCnaI3b9MCj+YmOLcy4D0uIZuwDA1LfnAb0hnwGYY58U2hoIMuZJrBYgLb+g0AB4RTZ7VABNnRTkaK3DJUc8lnAvyCoztQDaWEUAFH/brrVbhe/8ugEYJaNibQPEHUWXYWPmjIwMm3ar2JfYteLszzkAujcN06GBllAAAAAASUVORK5CYII=" alt="Django Logo"> Django</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" alt="PyTorch Logo"> PyTorch</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" alt="TensorFlow Logo"> TensorFlow</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" alt="NumPy Logo"> NumPy</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" alt="Pandas Logo"> Pandas</li>
-                        <li><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Keras_logo.svg" alt="Keras Logo"> Keras</li>
+                        <li><img src="https://keras.io/img/logo.png" alt="Keras Logo"> Keras</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Apache_Spark_logo.svg" alt="PySpark Logo"> PySpark</li>
                         <li><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn Logo"> scikit-learn</li>
                         <li>
@@ -896,60 +1049,15 @@
                          <li><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker Logo"> Docker</li>
                          <li><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg" alt="Kubernetes Logo"> Kubernetes</li>
                          <li><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git Logo"> Git / GitHub</li>
-                         <li><img src="https://www.svgrepo.com/show/374035/rest-api.svg" alt="API Logo"> RESTful APIs</li>
-                         <li><img src="https://www.svgrepo.com/show/448240/etl.svg" alt="ETL Logo"> ETL Pipelines</li>
-                         <li><img src="https://www.svgrepo.com/show/448219/ci.svg" alt="CI/CD Logo"> CI/CD frameworks</li>
+                         <li><img src="https://www.svgrepo.com/show/374035/rest-api.svg"> RESTful APIs</li>
+                         <li><img src="https://www.svgrepo.com/show/448240/etl.svg"> ETL Pipelines</li>
+                         <li><img src="https://www.svgrepo.com/show/448219/ci.svg"> CI/CD frameworks</li>
                          <li><img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter Logo"> Jupyter Notebooks</li>
                          <li><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI Logo"> Tableau / Power BI</li>
                     </ul>
                 </div>
             </div>
         </section>
-
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="timeline-container">
-                <div class="timeline-item timeline-item-right">
-                    <div class="timeline-content">
-                        <a href="https://www.escapeapp.ai/"><img src="images/escapeenterprises_logo.jpeg" alt="Escape Enterprises Logo" class="timeline-logo" ></a>
-                        <h3>Machine Learning Engineer Intern</h3>
-                        <p class="company-name">Escape Enterprises</p>
-                        <p class="company-date">Dec 2024 - Present</p>
-                    </div>
-                </div>
-                <div class="timeline-item timeline-item-left">
-                    <div class="timeline-content">
-                        <a href="https://www.psitcorp.com/"><img src="images/progress_solutions_inc_logo.jpeg" alt="Progress Solutions Logo" class="timeline-logo"></a>
-                         <h3>Machine Learning Engineer</h3>
-                         <p class="company-name">Progress Solutions</p>
-                         <p class="company-date">Apr 2024 - Nov 2024</p>
-                    </div>
-                </div>
-                <div class="timeline-item timeline-item-right">
-                    <div class="timeline-content">
-                        <a href="https://air.vitap.ac.in/"><img src="images/divami_design_labs_ux_ui_design_development_agency_logo.jpeg" alt="Divami Logo" class="timeline-logo"></a>
-                        <h3>Software Engineer Intern</h3>
-                        <p class="company-name">Divami Design Labs</p>
-                        <p class="company-date">Jan 2022 - Jul 2022</p>
-                    </div>
-                </div>
-                <div class="timeline-item timeline-item-left">
-                    <div class="timeline-content">
-                        <a href="https://divami.com/"><img src="images/air_center_logo.jpeg" alt="Divami Logo" class="timeline-logo"></a>
-                        <h3>Machine Learning Engineer Intern</h3>
-                        <p class="company-name">AI & Robotics Center of VIT-AP University</p>
-                        <p class="company-date">Jun 2020 - Oct 2020</p>
-                    </div>
-                </div>
-                <div class="timeline-item timeline-item-right">
-                    <div class="timeline-content">
-                        <a href="http://www.suprajatechnologies.com/"><img src="images/suprajatech_logo.jpeg" alt="Divami Logo" class="timeline-logo"></a>
-                        <h3>Software Engineer Intern</h3>
-                        <p class="company-name">Supraja Technologies</p>
-                        <p class="company-date">Apr 2019 - Aug 2019</p>
-                    </div>
-                </div>
-                 </div> </section>
 
         <section id="contact">
             <h2>Contact</h2>
