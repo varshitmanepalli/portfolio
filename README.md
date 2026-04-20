@@ -1,50 +1,106 @@
-# Varshit Manepalli - Machine Learning Engineer Portfolio 🚀
+# Varshit Manepalli — Portfolio
 
-![Portfolio Screenshot](images/COVER.JPG)
+> Personal portfolio website for a GenAI & ML Engineer. Built as a production-grade static site with a dark-first design system, animated neural network canvas, scroll-reveal animations, and a live contact form backed by Web3Forms.
 
-Welcome to the repository for my personal portfolio website! This site showcases my skills, projects, and experience as a Machine Learning Engineer.
-
-**✨ Live Site:** [**https://varshitmanepalli.github.io/portfolio/**](https://varshitmanepalli.github.io/portfolio/)
+**Live:** [varshitmanepalli.github.io/portfolio](https://varshitmanepalli.github.io/portfolio/)
 
 ---
 
-## 🌟 About This Project
+## Overview
 
-This portfolio is a single-page application designed to provide a comprehensive overview of my professional background, technical expertise, and the projects I've worked on. It's built with clean HTML, styled with Tailwind CSS and custom CSS, and includes interactive JavaScript elements.
+Single-page portfolio covering:
 
----
-
-## 🛠️ Features
-
-* **Top Section:** An engaging cover image with a profile picture, title, and social media links.
-* **About Me:** A summary of my professional profile and education details with university logos.
-* **Projects:** A grid showcasing key projects with images, descriptions, and tools used.
-* **Skills:** A display of technical skills, categorized into Programming Languages, Frameworks & Libraries, and Platforms & Tools, with relevant logos.
-* **Experience:** A vertical timeline detailing my work experience with company logos and roles.
-* **Contact:** Social media links and a contact form (frontend structure).
-* **Responsive Design:** Adapts to various screen sizes for optimal viewing on desktop and mobile devices.
-* **Smooth Scrolling:** For easy navigation through sections.
-* **Parallax Effect:** On the main cover image for a modern visual touch.
+- **Hero** — animated neural network background, profile photo, key stats
+- **About** — bio, education (Stevens Institute of Technology M.S. CS, VIT-AP B.Tech), certifications
+- **Experience** — vertical timeline across 5 roles (Okada & Company, Escape™ App AI, Progress Solutions, Stevens Research, Divami)
+- **Projects** — 7 ML/AI projects with images, tech stacks, and GitHub links
+- **Skills** — 6 grouped categories with animated expertise depth bars
+- **Contact** — live email delivery via Web3Forms (no backend required)
 
 ---
 
-## 💻 Technologies Used
+## Tech Stack
 
-* **HTML5:** For the structure and content.
-* **CSS3:** For custom styling, animations, and layout (including Flexbox and Grid).
-* **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-* **JavaScript (Vanilla):** For interactive elements like smooth scrolling and active navigation highlighting.
-* **GitHub Pages:** For hosting the live website.
-
----
-
-## 🚀 How to View
-
-1.  Visit the live site: [**varshitmanepalli.github.io/portfolio/**](https://varshitmanepalli.github.io/portfolio/)
-2.  Alternatively, to run locally:
-    * Clone this repository: `git clone https://varshitmanepalli.github.io/portfolio.git`
-    * Navigate to the project directory: `cd portfolio`
-    * Open the `index.html` file in your web browser.
+| Layer | Choice |
+|---|---|
+| Markup | Semantic HTML5 |
+| Styling | Vanilla CSS with custom design tokens (no framework) |
+| Typography | Clash Display · Satoshi · JetBrains Mono (via Fontshare + Google Fonts) |
+| Animation | CSS keyframes + IntersectionObserver scroll-reveal |
+| Canvas | Vanilla JS neural network particle system |
+| Email | [Web3Forms](https://web3forms.com) API (250 free submissions/month) |
+| Hosting | GitHub Pages |
 
 ---
 
+## Project Structure
+
+```
+portfolio/
+├── index.html                  # Single-page application (all sections)
+├── assets/
+│   └── images/
+│       ├── profile/
+│       │   └── varshit-manepalli.jpg     # Profile photo
+│       └── projects/
+│           ├── ai-soundscapes.jpg
+│           ├── cyberattack-gan-detection.jpg
+│           ├── hate-speech-detection.jpg
+│           ├── hedge-fund-simulator.jpg
+│           ├── hiv-therapy-optimization.jpg
+│           └── weather-forecasting.jpg
+└── README.md
+```
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/varshitmanepalli/portfolio.git
+cd portfolio
+# Open directly — no build step required
+open index.html
+```
+
+Or with a local dev server (recommended for accurate asset loading):
+
+```bash
+npx serve .
+# → http://localhost:3000
+```
+
+---
+
+## Design System
+
+The site uses a custom CSS design token system — no Tailwind, no external CSS framework.
+
+| Token group | Details |
+|---|---|
+| `--color-bg` / `--color-surface` | Deep navy dark mode (`#080c14` / `#0d1220`) |
+| `--color-primary` | Electric cyan `#00d4ff` |
+| `--color-secondary` | Soft purple `#9d7aea` |
+| `--font-display` | Clash Display (headings) |
+| `--font-body` | Satoshi (body text) |
+| `--font-mono` | JetBrains Mono (labels, tags, code) |
+| `--text-*` | Fluid type scale via `clamp()` |
+
+Dark/light mode toggle is built-in (`data-theme` attribute on `<html>`).
+
+---
+
+## Contact Form
+
+The form POSTs to the [Web3Forms](https://web3forms.com) API:
+
+- No backend or server required
+- Emails delivered directly to `varshitmanepalli1810@gmail.com`
+- Honeypot field (`botcheck`) for spam protection
+- Async fetch with inline success/error states — no page redirect
+
+---
+
+## License
+
+MIT — feel free to fork and adapt for your own portfolio.
