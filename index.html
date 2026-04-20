@@ -725,6 +725,8 @@
       background: linear-gradient(90deg, var(--color-primary), transparent);
       margin-bottom: var(--space-6);
     }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -1363,6 +1365,14 @@
       <!-- Contact form -->
       <div class="reveal">
         <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
+          <!-- Web3Forms required fields -->
+          <input type="hidden" name="access_key" value="45396fcf-3b19-4e85-9d74-0cdb3b73a0f8" />
+          <input type="hidden" name="subject" id="email-subject" value="New Portfolio Contact" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+          <input type="hidden" name="redirect" value="false" />
+          <!-- Honeypot spam protection -->
+          <input type="checkbox" name="botcheck" style="display:none;" />
+
           <div class="form-group">
             <label class="form-label" for="name">Name</label>
             <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
@@ -1373,17 +1383,23 @@
           </div>
           <div class="form-group">
             <label class="form-label" for="subject">Subject</label>
-            <input class="form-input" type="text" id="subject" name="subject" placeholder="What's this about?" />
+            <input class="form-input" type="text" id="subject" name="subject-field" placeholder="What's this about?" />
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Message</label>
             <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about the opportunity or project…" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">
+          <button type="submit" class="btn btn-primary" id="submit-btn" style="align-self: flex-start;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             Send Message
           </button>
-          <p id="form-status" style="font-size: var(--text-sm); color: var(--color-primary); display: none;"></p>
+          <!-- Status messages -->
+          <div id="form-success" style="display:none; padding: var(--space-4); background: rgba(67,122,34,0.12); border: 1px solid #437a22; border-radius: var(--radius-md); font-size: var(--text-sm); color: #6daa45;">
+            <strong>Message sent!</strong> Thanks for reaching out — I'll get back to you soon.
+          </div>
+          <div id="form-error" style="display:none; padding: var(--space-4); background: rgba(161,44,123,0.12); border: 1px solid #a12c7b; border-radius: var(--radius-md); font-size: var(--text-sm); color: #d163a7;">
+            <strong>Something went wrong.</strong> Please try emailing directly at <a href="mailto:varshitmanepalli1810@gmail.com" style="color: inherit; text-decoration: underline;">varshitmanepalli1810@gmail.com</a>
+          </div>
         </form>
       </div>
     </div>
@@ -1576,26 +1592,49 @@ document.getElementById('hamburger').addEventListener('click', function() {
   sections.forEach(s => observer.observe(s));
 })();
 
-// ---- Contact form handler ----
-function handleFormSubmit(e) {
+// ---- Contact form handler (Web3Forms) ----
+async function handleFormSubmit(e) {
   e.preventDefault();
-  const status = document.getElementById('form-status');
-  const btn = e.target.querySelector('button[type="submit"]');
+  const form = e.target;
+  const btn = document.getElementById('submit-btn');
+  const successEl = document.getElementById('form-success');
+  const errorEl = document.getElementById('form-error');
+
+  // Update subject field to include the user-entered subject
+  const subjectField = document.getElementById('subject').value;
+  document.getElementById('email-subject').value = subjectField
+    ? 'Portfolio Contact: ' + subjectField
+    : 'New Portfolio Contact';
+
+  // Loading state
   btn.disabled = true;
-  btn.textContent = 'Sending…';
-  // Construct mailto link as fallback
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value || 'Portfolio Contact';
-  const message = document.getElementById('message').value;
-  const mailtoUrl = `mailto:varshitmanepalli1810@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + ' <' + email + '>\n\n' + message)}`;
-  window.location.href = mailtoUrl;
-  setTimeout(() => {
+  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Sending…';
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  try {
+    const data = new FormData(form);
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+    const result = await response.json();
+
+    if (result.success) {
+      successEl.style.display = 'block';
+      form.reset();
+      // Scroll success into view
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      throw new Error(result.message || 'Submission failed');
+    }
+  } catch (err) {
+    console.error('Form error:', err);
+    errorEl.style.display = 'block';
+  } finally {
     btn.disabled = false;
     btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
-    status.style.display = 'block';
-    status.textContent = 'Email client opened! Looking forward to hearing from you.';
-  }, 1500);
+  }
 }
 </script>
 
